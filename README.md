@@ -2,7 +2,7 @@
 Project for Web Scraping, MLOps and Cloud Computing with Crypto data.
 
 ## Step 1 - Web Scraping + Database architectures
-![Screenshot](diagrams/WebScrapling.png)
+![Screenshot](diagrams/WebScraping.png)
 Core points:
 <ul>
     <li><strong>Web Scraping:</strong> the web scraping objetive is get util data for this analisys. This step is contained in the Application layer in the figure above;</li>
