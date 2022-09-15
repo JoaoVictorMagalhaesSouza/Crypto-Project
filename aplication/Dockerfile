@@ -10,6 +10,6 @@ COPY . .
 RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-EXPOSE 8050
+EXPOSE 5000
 
-CMD [ "python","database_population.py" ]
+CMD ["flask", "run", "--host", "0.0.0.0"]

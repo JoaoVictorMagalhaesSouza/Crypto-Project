@@ -5,10 +5,10 @@ class DatabaseVerification():
 
     def get_all_existing_table_names(self):
         conn = psycopg2.connect(
-        host = 'x',
+        host = 'X',
         database = 'postgres',
         user = 'postgres',
-        password = 'JVictor@00'
+        password = 'X'
         )
         cursor = conn.cursor()
 

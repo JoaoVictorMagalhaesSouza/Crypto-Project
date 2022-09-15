@@ -1,5 +1,5 @@
 import psycopg2
-from datetime import datetime
+from datetime import datetime, timedelta
 class InsertData():
     def __init__(self, price, market_cap, volume, alter_names):
         self.price = price
@@ -9,13 +9,13 @@ class InsertData():
     
     def insert_data_into_database(self):
         conn = psycopg2.connect(
-        host = 'x',
+        host = 'X', 
         database = 'postgres',
         user = 'postgres',
-        password = 'JVictor@00'
+        password = 'X'
         )
         cursor = conn.cursor()
-        date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        date = (datetime.now()-timedelta(hours=3)).strftime('%Y-%m-%d %H:%M:%S')
         for position, crypto in enumerate(self.alter_names):
             
             price = self.price[position]
@@ -26,27 +26,6 @@ class InsertData():
             """
             cursor.execute(script)
         print(f'{date} - Populated successfull!')
-        cursor.close()
-        conn.commit()
-
-    def update_data(self):
-        conn = psycopg2.connect(
-        host = 'x',
-        database = 'postgres',
-        user = 'postgres',
-        password = 'JVictor@00'
-        )
-        cursor = conn.cursor()
-        date = '2022-09-15 10:15:41'
-        for position, crypto in enumerate(self.alter_names):
-            price = self.price[position]
-            volume = self.volume[position]
-            market_cap = self.market_cap[position]
-            script = f"""UPDATE {crypto} 
-                    SET price = {price}
-                    WHERE date='{date}'
-            """
-            cursor.execute(script)
         cursor.close()
         conn.commit()
 
