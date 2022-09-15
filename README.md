@@ -12,3 +12,5 @@ Core points:
     as shown in Trigger layer.</li>
     
 </ul>
+
+After this process, we have a database that is being populated with about +- 400rows/minute (4 variables * +- 100 crypto's).
