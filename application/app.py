@@ -10,7 +10,7 @@ def populate():
     for name in names:
         alter_names.append(name.replace(' ','').replace('-','').replace('1','One').lower())
         
-    verify = data_verification.DatabaseVerification(alter_names).get_all_existing_table_names()
+    verify = data_verification.DatabaseVerification(names, alter_names).get_all_existing_table_names()
     data = insert_data.InsertData(price,market_cap,vol,alter_names)
     data.insert_data_into_database()
 
