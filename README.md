@@ -15,3 +15,6 @@ Core points:
 </ul>
 
 After this process, we have a database that is being populated with about +- 100rows/5minutes.
+
+## Step 2 - General Architecture of Dashboard
+![Screenshot](diagrams/Dashboard_Initial_Architecture.png)
