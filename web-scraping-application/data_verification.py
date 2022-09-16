@@ -7,10 +7,10 @@ class DatabaseVerification():
 
     def get_all_existing_table_names(self):
         conn = psycopg2.connect(
-        host = 'X',
+        host = 'confidential',
         database = 'postgres',
         user = 'postgres',
-        password = 'X'
+        password = 'confidential'
         )
         cursor = conn.cursor()
 
@@ -30,7 +30,6 @@ class DatabaseVerification():
         
         for crypto in self.alter_names:
             if crypto not in array_all_tables:
-                print(f"{crypto} not exists in Database. Creating table...")
                 cursor = conn.cursor()
                 script = f"""CREATE TABLE {crypto} (Date TIMESTAMP NOT NULL, Price FLOAT(32), MarketCap FLOAT(32), Volume FLOAT(32) );"""
                 cursor.execute(script)

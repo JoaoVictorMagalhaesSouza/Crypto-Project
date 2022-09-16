@@ -9,10 +9,10 @@ class InsertData():
     
     def insert_data_into_database(self):
         conn = psycopg2.connect(
-        host = 'X', 
+        host = 'confidential', 
         database = 'postgres',
         user = 'postgres',
-        password = 'X'
+        password = 'confidential'
         )
         cursor = conn.cursor()
         date = (datetime.now()-timedelta(hours=3)).strftime('%Y-%m-%d %H:%M:%S')
