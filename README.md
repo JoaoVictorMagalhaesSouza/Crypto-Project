@@ -1,7 +1,8 @@
 # Crypto Project
 Project for Web Scraping, MLOps and Cloud Computing with Crypto data.
 
-## Step 1 - Web Scraping + Database architectures
+## Step 1 - General Architecture of Web Scraping 
+
 ![Screenshot](diagrams/WebScraping.png)
 
 Core points:
