@@ -13,4 +13,4 @@ Core points:
     
 </ul>
 
-After this process, we have a database that is being populated with about +- 100rows/minute.
+After this process, we have a database that is being populated with about +- 100rows/5minutes.
