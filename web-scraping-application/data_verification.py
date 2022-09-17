@@ -1,12 +1,12 @@
 import psycopg2
 from datetime import datetime, timedelta
 import json
+
 class DatabaseVerification():
     def __init__(self, names, alter_names):
         self.alter_names = alter_names
         self.original_names = names
         self.config_data = json.load(open('configs.json'))
-    
 
     def get_all_existing_table_names(self):
         conn = psycopg2.connect(
@@ -33,6 +33,7 @@ class DatabaseVerification():
         
         for crypto in self.alter_names:
             if crypto not in array_all_tables:
+                
                 cursor = conn.cursor()
                 script = f"""CREATE TABLE {crypto} (Date TIMESTAMP NOT NULL, Price FLOAT(32), MarketCap FLOAT(32), Volume FLOAT(32) );"""
                 cursor.execute(script)
