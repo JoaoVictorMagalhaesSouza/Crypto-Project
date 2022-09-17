@@ -3,7 +3,7 @@ import psycopg2
 from datetime import datetime, timedelta
 import json
 import pandas as pd
-
+import math
 class DataAcquisition():
     def __init__(self):
         self.output_data = pd.DataFrame()
@@ -20,12 +20,14 @@ class DataAcquisition():
                 menor = value
                 min_column.append(menor)
             else:
+                if i%13==0:
+                    menor = math.inf
                 if value < menor:
                     menor = value
                     min_column.append(menor)
                 else:
                     min_column.append(menor)
-        self.output_data['min'] = min_column
+        self.output_data['min_1h'] = min_column
         
 
     def create_max_column(self):
@@ -39,12 +41,14 @@ class DataAcquisition():
                 maior = value
                 max_column.append(maior)
             else:
+                if i%13==0:
+                    maior = -math.inf
                 if value > maior:
                     maior = value
                     max_column.append(maior)
                 else:
                     max_column.append(maior)
-        self.output_data['max'] = max_column
+        self.output_data['max_1h'] = max_column
         
 
     def get_data(self,crypto_name='bitcoin',
