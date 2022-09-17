@@ -3,10 +3,10 @@ from datetime import datetime, timedelta
 
 def get_data(crypto_name, start_date = (datetime.now()-timedelta(hours=3)).strftime('%Y-%m-%d %H:%M:%S'), end_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')):
     conn = psycopg2.connect(
-        host = '34.173.188.111',
+        host = 'confidential',
         database = 'postgres',
         user = 'postgres',
-        password = 'JVictor@00'
+        password = 'confidential'
         )
     cursor = conn.cursor()
 
