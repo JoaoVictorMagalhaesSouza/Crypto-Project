@@ -1,0 +1,6 @@
+psycopg2
+flask
+pandas
+plotly
+dash
+dash-bootstrap-components

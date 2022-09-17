@@ -2,7 +2,8 @@ import psycopg2
 from datetime import datetime, timedelta
 import json
 import pandas as pd
-def get_data(crypto_name='bitcoin', start_date = (datetime.now()-timedelta(hours=3)).strftime('%Y-%m-%d %H:%M:%S'), end_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')):
+
+def get_all_available_cryptos():
     config_data = json.load(open('../configs.json'))
     conn = psycopg2.connect(
         host = config_data['host'], 
@@ -11,6 +12,6 @@ def get_data(crypto_name='bitcoin', start_date = (datetime.now()-timedelta(hours
         password = config_data['password']
         )
 
-    query = f"SELECT * FROM {crypto_name} WHERE date BETWEEN '{start_date}' and '{end_date}'"
+    query = "SELECT * FROM cryptos"
     data = pd.read_sql(query,conn)
     return data
