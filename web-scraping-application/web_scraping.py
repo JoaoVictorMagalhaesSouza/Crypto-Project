@@ -1,16 +1,14 @@
 from bs4 import BeautifulSoup
 import requests
-from locale import atof, setlocale, LC_NUMERIC
+import json
+from locale import setlocale, LC_NUMERIC
 setlocale(LC_NUMERIC, '')
 
 class Scrapper():
     def __init__(self):
         self.html = requests.get('https://www.investing.com/crypto/currencies').content
         self.soup = BeautifulSoup(self.html, 'html.parser')
-        self.focus = ['Bitcoin', 'Ethereum', 'Tether', 'Cardano', 'Dogecoin', "Stellar", 'XRP', "Polkadot",
-                    'Neo', 'Celsius', "Aave", 'Cosmos', 'Shiba Inu', 'TRON', 'BNB', 'Polygon', 'Dash',
-                    'Tezos', 'Hedera', 'Monero'
-                    ]
+        self.focus = json.load(open('cryptos.json'))['cryptos']
     
     def get_available_cryptos(self):
         all_html = self.soup.find_all('td')
