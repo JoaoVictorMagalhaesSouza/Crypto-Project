@@ -15,6 +15,13 @@ class XGBModel():
         if params != None:
             self.model = XGBRegressor(**params)
         else:
-            pass
-            #Call param optimization here
+            #TODO:
+            # Call param optimization here
+            self.model = XGBRegressor(n_estimators=50, max_depth=4, eval_metric = 'mae')
+    
+    def fit(self):
+        self.model.fit(self.X_train,self.y_train)
+    
+    def predict(self):
+        return self.model.predict(self.X_test)
 
