@@ -9,9 +9,9 @@ from utils import split_data as sd
 from models import architectures as arch
 #%%
 data = da.DataAcquisition().data_acquisition_pipeline()
-data = dp.DataPreparation(data).data_preparation_pipeline()
+data_for_train, data_for_predict = dp.DataPreparation(data).data_preparation_pipeline_realtime()
 # %%
-X_train, y_train, X_test, y_test, train_dates, test_dates = sd.SplitData(data).split_train_test()
+X_train, y_train, X_test, y_test, train_dates, test_dates = sd.SplitData(data_for_train).split_train_test()
 #%%
 model = arch.XGBModel(X_train, X_test, y_train, y_test)
 model.init_model()

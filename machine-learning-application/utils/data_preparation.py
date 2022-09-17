@@ -50,13 +50,15 @@ class DataPreparation():
     def create_target_column(self):
         #5min
         self.output_data['future_price'] = self.output_data['price'].shift(-1)
-        self.output_data = self.output_data[:-1]
+        
     
-    def data_preparation_pipeline(self):
+    def data_preparation_pipeline_realtime(self):
         self.create_max_column()
         self.create_min_column()
         self.create_target_column()
-        return self.output_data
+        data_for_predict = self.output_data.tail(1)
+        data_for_train = self.output_data[:-1]
+        return data_for_train, data_for_predict
 
 
 
