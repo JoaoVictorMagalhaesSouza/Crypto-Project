@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import json
 import pandas as pd
 import math
+
 class DataAcquisition():
     def __init__(self):
         self.output_data = pd.DataFrame()
