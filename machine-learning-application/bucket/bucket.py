@@ -58,6 +58,7 @@ class BucketArchitecture():
             f"{destination_blob_name} with path {source_file_name} uploaded to {bucket_name}."
         )
     
+
     def save_models_in_bucket(self, source_file_name):
         self.authenticate_implicit_with_adc()
         self.upload_blob(source_file_name)
