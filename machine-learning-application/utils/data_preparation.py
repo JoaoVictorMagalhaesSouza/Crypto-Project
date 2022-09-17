@@ -52,7 +52,7 @@ class DataPreparation():
         self.output_data['future_price'] = self.output_data['price'].shift(-1)
         
     
-    def data_preparation_pipeline_realtime(self):
+    def data_preparation_pipeline_local(self):
         self.create_max_column()
         self.create_min_column()
         self.create_target_column()
@@ -60,5 +60,11 @@ class DataPreparation():
         data_for_train = self.output_data[:-1]
         return data_for_train, data_for_predict
 
+    def data_preparation_pipeline_realtime(self):
+        self.create_max_column()
+        self.create_min_column()
+        self.create_target_column()
+        self.output_data = self.output_data[:-1]
+        return self.output_data
 
 

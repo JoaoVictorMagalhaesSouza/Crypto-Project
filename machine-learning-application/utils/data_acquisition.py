@@ -10,9 +10,7 @@ class DataAcquisition():
         self.output_data = pd.DataFrame()
 
 
-    def get_data(self,crypto_name='bitcoin',
-                start_date = (datetime.now()-timedelta(hours=3)).strftime('%Y-%m-%d %H:%M:%S'),
-                end_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')):
+    def get_data(self,crypto_name='bitcoin'):
         
         
         config_data = json.load(open('../configs.json'))
@@ -23,11 +21,9 @@ class DataAcquisition():
             password = config_data['password']
             )
 
-        query = f"SELECT * FROM {crypto_name} WHERE date BETWEEN '{start_date}' and '{end_date}'"
+        query = f"SELECT * FROM {crypto_name}"
         self.output_data = pd.read_sql(query,conn)
 
-    def data_acquisition_pipeline(self,crypto_name='bitcoin',
-                start_date = (datetime.now()-timedelta(hours=3)).strftime('%Y-%m-%d %H:%M:%S'),
-                end_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')):
-        self.get_data(crypto_name,start_date,end_date)
+    def data_acquisition_pipeline(self,crypto_name='bitcoin'):
+        self.get_data(crypto_name)
         return self.output_data
