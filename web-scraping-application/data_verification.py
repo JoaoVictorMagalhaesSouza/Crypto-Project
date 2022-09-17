@@ -1,16 +1,19 @@
 import psycopg2
 from datetime import datetime, timedelta
+import json
 class DatabaseVerification():
     def __init__(self, names, alter_names):
         self.alter_names = alter_names
         self.original_names = names
+        self.config_data = json.load(open('configs.json'))
+    
 
     def get_all_existing_table_names(self):
         conn = psycopg2.connect(
-        host = 'confidential',
-        database = 'postgres',
-        user = 'postgres',
-        password = 'confidential'
+        host = self.config_data['host'], 
+        database = self.config_data['database'],
+        user = self.config_data['user'],
+        password = self.config_data['password']
         )
         cursor = conn.cursor()
 

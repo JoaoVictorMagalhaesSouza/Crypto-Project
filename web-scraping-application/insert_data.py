@@ -1,18 +1,20 @@
 import psycopg2
 from datetime import datetime, timedelta
+import json
 class InsertData():
     def __init__(self, price, market_cap, volume, alter_names):
         self.price = price
         self.market_cap = market_cap
         self.volume = volume
         self.alter_names = alter_names
+        self.config_data = json.load(open('configs.json'))
     
     def insert_data_into_database(self):
         conn = psycopg2.connect(
-        host = 'confidential', 
-        database = 'postgres',
-        user = 'postgres',
-        password = 'confidential'
+        host = self.config_data['host'], 
+        database = self.config_data['database'],
+        user = self.config_data['user'],
+        password = self.config_data['password']
         )
         cursor = conn.cursor()
         date = (datetime.now()-timedelta(hours=3)).strftime('%Y-%m-%d %H:%M:%S')
