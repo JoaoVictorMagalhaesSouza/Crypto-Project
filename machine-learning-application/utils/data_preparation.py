@@ -64,8 +64,8 @@ class DataPreparation():
         self.create_max_column()
         self.create_min_column()
         self.create_target_column()
+        self.output_data = self.output_data.drop(columns={'predicted_value'})
         self.output_data = self.output_data[:-1]
-        self
         return self.output_data
     
     def data_preparation_predict_pipeline_realtime(self):

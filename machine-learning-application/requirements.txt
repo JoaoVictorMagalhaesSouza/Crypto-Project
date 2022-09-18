@@ -6,3 +6,4 @@ google-auth-oauthlib
 tensorflow
 xgboost
 scikit-learn
+optuna

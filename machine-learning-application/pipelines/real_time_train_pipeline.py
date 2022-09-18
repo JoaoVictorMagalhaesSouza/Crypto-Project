@@ -12,6 +12,7 @@ from utils import data_preparation as dp
 from utils import split_data as sd
 from utils import auxiliary_functions as af
 from models import architectures as arch
+from model_param_optimization import optimize_model as om
 
 class RealTimeTrain():
     def __init__(self, list_cryptos_to_train = af.get_all_available_cryptos()['db_crypto_name'].values):
@@ -50,12 +51,15 @@ class RealTimeTrain():
             X_train, y_train, train_dates = sd.SplitData(prepared_data).split_real_time()
 
             #Here we go to apply optuna to decide best model for wich crypto...
+            X_train_splited, y_train_splited, X_test_splited, y_test_splited, train_dates_splited, test_dates_splited = sd.SplitData(prepared_data).split_train_test()
+            best_params = om.OptimizeModel(X_train_splited,y_train_splited,X_test_splited,y_test_splited).optimize_model()
+            print(X_train)
             model = arch.XGBModel()
-            type = 'xgb'
-            model.init_model()
-            model.fit(X_train, y_train)
+            model.init_model(params=best_params)
+            model.fit(X_train,y_train)
+            model_family = 'xgb'
             ###
             
-            filename = f"../saved_models/{crypto}_model_{type}.joblib"
+            filename = f"../saved_models/{crypto}_model_{model_family}.joblib"
             joblib.dump(model,filename)
-            self.save_data_into_database(crypto,f'{crypto}_model_{type}.joblib')
+            self.save_data_into_database(crypto,f'{crypto}_model_{model_family}.joblib')
