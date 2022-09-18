@@ -60,11 +60,20 @@ class DataPreparation():
         data_for_train = self.output_data[:-1]
         return data_for_train, data_for_predict
 
-    def data_preparation_pipeline_realtime(self):
+    def data_preparation_train_pipeline_realtime(self):
         self.create_max_column()
         self.create_min_column()
         self.create_target_column()
         self.output_data = self.output_data[:-1]
+        self
+        return self.output_data
+    
+    def data_preparation_predict_pipeline_realtime(self):
+        self.create_max_column()
+        self.create_min_column()
+        self.create_target_column()
+        self.output_data = self.output_data.tail(1)
+        self.output_data = self.output_data.drop(columns={'date','predicted_value','future_price'})
         return self.output_data
 
 

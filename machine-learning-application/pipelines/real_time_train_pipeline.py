@@ -46,7 +46,7 @@ class RealTimeTrain():
         for crypto in self.to_train:
             print(f"Training {crypto} model...")
             data = da.DataAcquisition().data_acquisition_pipeline(crypto_name=crypto)
-            prepared_data = dp.DataPreparation(data).data_preparation_pipeline_realtime()
+            prepared_data = dp.DataPreparation(data).data_preparation_train_pipeline_realtime()
             X_train, y_train, train_dates = sd.SplitData(prepared_data).split_real_time()
 
             #Here we go to apply optuna to decide best model for wich crypto...

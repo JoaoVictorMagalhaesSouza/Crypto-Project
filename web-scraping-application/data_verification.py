@@ -29,7 +29,9 @@ class DatabaseVerification():
 
         array_all_tables = []
         for table in all_tables:
-            array_all_tables.append(table[0])
+            if table in self.alter_names:
+                array_all_tables.append(table[0])
+
         
         for crypto in self.alter_names:
             if crypto not in array_all_tables:
