@@ -19,7 +19,7 @@ class RealTimePredict():
         self.to_predict = list_cryptos_to_predict
 
     def save_predictions_into_database(self, crypto, date, predict):
-        config_data = json.load(open('../configs.json'))
+        config_data = json.load(open('configs.json'))
         conn = psycopg2.connect(
             host = config_data['host'], 
             database = config_data['database'],
@@ -39,7 +39,7 @@ class RealTimePredict():
             dates = pd.to_datetime(str(data.tail(1)['date'].values[0])) 
             last_date = dates.strftime('%Y-%m-%d %H:%M:%S')
             prepared_data = dp.DataPreparation(data).data_preparation_predict_pipeline_realtime()
-            config_data = json.load(open('../configs.json'))
+            config_data = json.load(open('configs.json'))
             conn = psycopg2.connect(
                 host = config_data['host'], 
                 database = config_data['database'],
@@ -49,7 +49,7 @@ class RealTimePredict():
             query = f"SELECT model_name FROM models WHERE crypto = '{crypto}'"
             model_name = pd.read_sql(query,conn).values[0][0]
             print(model_name)
-            path = '../saved_models/'
+            path = 'saved_models/'
             model = joblib.load(f'{path}{model_name}')
             predict = model.predict(prepared_data)[0]
             self.save_predictions_into_database(crypto,last_date,predict)

@@ -4,6 +4,8 @@ from datetime import datetime, timedelta
 import json
 import pandas as pd
 import math
+import sys
+sys.path.append('../')
 
 class DataAcquisition():
     def __init__(self):
@@ -13,7 +15,7 @@ class DataAcquisition():
     def get_data(self,crypto_name='bitcoin'):
         
         
-        config_data = json.load(open('../configs.json'))
+        config_data = json.load(open('configs.json'))
         conn = psycopg2.connect(
             host = config_data['host'], 
             database = config_data['database'],
@@ -27,7 +29,7 @@ class DataAcquisition():
     def get_data_predict(self,crypto_name='bitcoin'):
         
         
-        config_data = json.load(open('../configs.json'))
+        config_data = json.load(open('configs.json'))
         conn = psycopg2.connect(
             host = config_data['host'], 
             database = config_data['database'],

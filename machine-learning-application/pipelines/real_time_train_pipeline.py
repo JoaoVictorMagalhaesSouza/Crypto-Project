@@ -19,7 +19,7 @@ class RealTimeTrain():
         self.to_train = list_cryptos_to_train
     
     def save_data_into_database(self,crypto, model_name):
-        config_data = json.load(open('../configs.json'))
+        config_data = json.load(open('configs.json'))
         conn = psycopg2.connect(
             host = config_data['host'], 
             database = config_data['database'],
