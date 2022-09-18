@@ -4,6 +4,8 @@ import psycopg2
 import json
 import joblib
 from datetime import datetime, timedelta
+import warnings
+warnings.filterwarnings("ignore")
 sys.path.append('../')
 
 from utils import data_acquisition as da

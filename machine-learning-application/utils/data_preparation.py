@@ -71,9 +71,8 @@ class DataPreparation():
     def data_preparation_predict_pipeline_realtime(self):
         self.create_max_column()
         self.create_min_column()
-        self.create_target_column()
         self.output_data = self.output_data.tail(1)
-        self.output_data = self.output_data.drop(columns={'date','predicted_value','future_price'})
+        self.output_data = self.output_data.drop(columns={'date','predicted_value'})
         return self.output_data
 
 
