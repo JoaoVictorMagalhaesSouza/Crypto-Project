@@ -1,4 +1,6 @@
 from flask import Flask
+import requests
+import json
 import web_scraping, insert_data, data_verification
 app = Flask(__name__)
 
@@ -13,7 +15,9 @@ def populate():
     verify = data_verification.DatabaseVerification(names, alter_names).get_all_existing_table_names()
     data = insert_data.InsertData(price,market_cap,vol,alter_names)
     data.insert_data_into_database()
-
+    #Predict
+    url = json.load(open('configs.json'))['url_predict']
+    requests.get(url)
     return 'Sucess!'
 
 if __name__ == "__main__":

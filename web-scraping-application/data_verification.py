@@ -37,7 +37,7 @@ class DatabaseVerification():
             if crypto not in array_all_tables:
                 
                 cursor = conn.cursor()
-                script = f"""CREATE TABLE {crypto} (Date TIMESTAMP NOT NULL, Price FLOAT(32), MarketCap FLOAT(32), Volume FLOAT(32) );"""
+                script = f"""CREATE TABLE IF NOT EXISTS {crypto} (Date TIMESTAMP NOT NULL, Price FLOAT(32), MarketCap FLOAT(32), Volume FLOAT(32) );"""
                 cursor.execute(script)
         cursor.close()
         conn.commit()
