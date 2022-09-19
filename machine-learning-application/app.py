@@ -3,6 +3,10 @@ from pipelines import real_time_predict_pipeline, real_time_train_pipeline
 
 app = Flask(__name__)
 
+@app.route('/')
+def nothing():
+    return 'Sucess !'
+
 @app.route('/train')
 def train_model():
     real_time_train_pipeline.RealTimeTrain().train_pipeline()

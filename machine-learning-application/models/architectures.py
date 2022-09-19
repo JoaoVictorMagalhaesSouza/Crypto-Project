@@ -1,5 +1,4 @@
 from xgboost import XGBRegressor
-import tensorflow as tf
 
 class XGBModel():
     def __init__(self):

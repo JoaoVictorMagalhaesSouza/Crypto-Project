@@ -3,7 +3,9 @@ google-cloud
 google-cloud-storage
 google-auth-httplib2
 google-auth-oauthlib
-tensorflow
 xgboost
 scikit-learn
 optuna
+flask
+pandas
+psycopg2
