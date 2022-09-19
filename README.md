@@ -23,4 +23,4 @@ After this process, we have a database that is being populated with about +- 100
 ![Screenshot](diagrams/Database.png)
 
 ### Step 2.2 - GCP Schedules
-![Screenshot](diagrams/Schedulers.png)
+![Screenshot](diagrams/Schedules.png)
