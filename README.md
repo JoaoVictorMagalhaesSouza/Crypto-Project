@@ -20,7 +20,7 @@ After this process, we have a database that is being populated with about +- 100
 ![Screenshot](diagrams/WS%2BML_Arch.png)
 
 ### Step 2.1 - Database Structure
-![Screenshot](diagrams/database.png)
+![Screenshot](diagrams/Database.png)
 
 ### Step 2.2 - GCP Schedules
-![Screenshot](diagrams/Schedules.png)
+![Screenshot](diagrams/Schedulers.png)
