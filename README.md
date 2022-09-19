@@ -16,5 +16,8 @@ Core points:
 
 After this process, we have a database that is being populated with about +- 100rows/5minutes.
 
-## Step 2 - General Architecture of Dashboard
-![Screenshot](diagrams/Dashboard_Initial_Architecture.png)
+## Step 2 - General Architecture of Web Scraping + ML Process
+![Screenshot](diagrams/WS%2BML_Arch.png)
+
+### Step 2.1 - Database Structure
+![Screenshot](diagrams/database.png)
