@@ -48,7 +48,6 @@ class RealTimePredict():
                 )
             query = f"SELECT model_name FROM models WHERE crypto = '{crypto}'"
             model_name = pd.read_sql(query,conn).values[0][0]
-            print(model_name)
             path = 'saved_models/'
             model = joblib.load(f'{path}{model_name}')
             predict = model.predict(prepared_data)[0]

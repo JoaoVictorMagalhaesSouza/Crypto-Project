@@ -60,6 +60,6 @@ class RealTimeTrain():
             model_family = 'xgb'
             ###
             
-            filename = f"../saved_models/{crypto}_model_{model_family}.joblib"
+            filename = f"saved_models/{crypto}_model_{model_family}.joblib"
             joblib.dump(model,filename)
             self.save_data_into_database(crypto,f'{crypto}_model_{model_family}.joblib')

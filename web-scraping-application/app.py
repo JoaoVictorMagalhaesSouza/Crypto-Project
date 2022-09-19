@@ -2,6 +2,7 @@ from flask import Flask
 import requests
 import json
 import web_scraping, insert_data, data_verification
+
 app = Flask(__name__)
 
 @app.route('/')
