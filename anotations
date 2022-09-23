@@ -1,0 +1,10 @@
+Dominância do BITCOIN: pesquisar!
+    - Correlação das criptos com o BTC
+    - Derivada do BTC (janela móvel 30).
+
+Feauture:
+    - 0 1: diz se o Bitcoin valorizou ou desvalorizou.
+
+Métrica de acerto de tendência, MAE, MSE, MAPE.
+
+Preço

@@ -1,5 +1,5 @@
 {
     "cryptos" : ["Bitcoin", "Ethereum", "Tether", "Cardano", "Dogecoin", "Stellar", "XRP",
                  "Polkadot","Neo", "Celsius", "Aave", "Cosmos", "Shiba Inu", "TRON", "BNB",
-                 "Polygon", "Dash","Tezos", "Hedera", "Monero" ]
+                 "Polygon", "Dash","Tezos", "Hedera", "Monero"]
 }
