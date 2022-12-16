@@ -1,12 +1,14 @@
 from bs4 import BeautifulSoup
 import requests
+import cloudscraper
 import json
 from locale import setlocale, LC_NUMERIC
 setlocale(LC_NUMERIC, '')
 
 class Scrapper():
     def __init__(self):
-        self.html = requests.get('https://www.investing.com/crypto/currencies').content
+        #self.html = requests.get("https://www.investing.com/crypto/currencies").content
+        self.html = cloudscraper.create_scraper().get("https://www.investing.com/crypto/currencies").content
         self.soup = BeautifulSoup(self.html, 'html.parser')
         self.focus = json.load(open('cryptos.json'))['cryptos']
     

@@ -15,7 +15,7 @@ class DataAcquisition():
     def get_data(self,crypto_name='bitcoin'):
         
         
-        config_data = json.load(open('configs.json'))
+        config_data = json.load(open('../configs.json'))
         conn = psycopg2.connect(
             host = config_data['host'], 
             database = config_data['database'],

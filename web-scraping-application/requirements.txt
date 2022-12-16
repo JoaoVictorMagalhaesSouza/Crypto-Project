@@ -4,3 +4,4 @@ psycopg2
 apscheduler
 schedule
 flask
+cloudscraper

@@ -6,7 +6,7 @@ import sys
 sys.path.append('../')
 
 def get_all_available_cryptos():
-    config_data = json.load(open('configs.json'))
+    config_data = json.load(open('../configs.json'))
     conn = psycopg2.connect(
         host = config_data['host'], 
         database = config_data['database'],
